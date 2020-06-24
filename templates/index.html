@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>TicTacToe</title>
+</head>
+
+<body>
+
+    <div class="board">
+        <h1>TicTacToe</h1>
+        <div class="game-board">
+            {% for i in range(9)%}
+            <div class="box" onclick="location.href='/index/{{i}}';">{{board_state[i]}}</div>
+            {% endfor %}
+        </div>
+        <div class='prop'>
+            {% if result == 'X' or result == 'O'%}
+            <p>{{ result }} has WON!</p>
+            {% endif %}
+            <p>Level: {{ level }}</p>
+        </div>
+
+        <a href="{{ url_for('easy') }}" class='btn'>Easy</a>
+        <a href="{{ url_for('medium') }}" class='btn'>Medium</a>
+        <a href="{{ url_for('reset') }}" class='blue-btn'>New Game</a>
+
+
+
+    </div>
+
+</body>
+
+
+</html>
